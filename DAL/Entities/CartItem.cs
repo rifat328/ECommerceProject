@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Entities
 {
-    internal class CartItem
+    public class CartItem
     {
+        public int CartItemId { get; set; }
+        public int CartId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantiry { get; set; }
+        public decimal Price { get; set; }
+
+
+
     }
 }

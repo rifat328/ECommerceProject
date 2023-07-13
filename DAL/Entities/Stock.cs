@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Entities
 {
-    internal class Stock
+    public class Stock
     {
+        
+        public int StockID { get; set; }
+        public int ProductID { get; set; }
+        public int? Quantity { get; set; }
+        public string? Location { get; set; }
+        public int? MinStockLevel { get; set; }
+
+
+      //- ProductID(Foreign Key referencing the Product Table)
+      //- Quantity
+      //- Location
+      //- MinStockLevel
+
     }
 }

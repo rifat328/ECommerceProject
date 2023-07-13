@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Entities
 {
-    internal class Category
+    public class Category
     {
+        public int CategoryId { get; set; }
+        public string Name { get; set; }
+        public string? Description { get; set; }
+
+
     }
 }

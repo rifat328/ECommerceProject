@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Entities
 {
-    internal class Cart
+    public class Cart
     {
+        public int CartId { get; set; }
+        public int UserId { get; set; }
+        public DateTime CreatedDate { get; set; }
+
+        //        - CartID(Primary Key)
+        //- UserID(Foreign Key referencing the User Table)
+        //- CreatedAt
+
     }
 }
