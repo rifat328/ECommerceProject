@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Entities
 {
-    internal class OrderItem
+    public class OrderItem
     {
+        public int OrderItemId { get; set; }
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
+
+        //        - OrderItemID(Primary Key)
+        //- OrderID(Foreign Key referencing the Order Table)
+        //- ProductID(Foreign Key referencing the Product Table)
+        //- Quantity
+        //- Price
+
     }
 }

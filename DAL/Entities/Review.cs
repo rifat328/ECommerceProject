@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Entities
 {
-    internal class Review
+    public class Review
     {
+        public int ReviewId { get; set; }
+        public int ProductId { get; set; }
+        public int UserId { get; set; }
+        public int Rating { get; set; }
+        public string? Comment { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set;}
+
+        //        - ReviewID(Primary Key)
+        //- ProductID(Foreign Key referencing the Product Table)
+        //- UserID(Foreign Key referencing the User Table)
+        //- Rating
+        //- Comment
+        //- CreatedAt
+
     }
 }
