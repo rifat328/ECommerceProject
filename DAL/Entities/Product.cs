@@ -18,6 +18,7 @@ namespace ECommerceProject.DAL.Entities
         public int CategoryId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
+        public bool IsDeleted { get; set; }
 
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Interfaces
 {
-    public interface UserRepository
+    public interface IUserRepository
     {
 
     }

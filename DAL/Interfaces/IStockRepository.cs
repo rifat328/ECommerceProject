@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Interfaces
 {
-    public interface StockRepository
+    public interface IStockRepository
     {
 
     }
