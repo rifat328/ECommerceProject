@@ -10,15 +10,18 @@ namespace ECommerceProject.DAL.Entities
     {
 
         public int ProductId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Company { get; set; }
+        public string Name { get; set; } 
+        public string Description { get; set; } = string.Empty;
+        public string Company { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public string ImageURL { get; set; }
-        public int CategoryId { get; set; }
+        public string ImageURL { get; set; }=string.Empty;
+        
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
+
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
 
 

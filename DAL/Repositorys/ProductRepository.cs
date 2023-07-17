@@ -1,6 +1,7 @@
 ﻿using ECommerceProject.DAL.Data;
 using ECommerceProject.DAL.Entities;
 using ECommerceProject.DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,33 +12,46 @@ namespace ECommerceProject.DAL.Repositorys
 {
     public class ProductRepository : IProductRepository
     {
-        ECommerceDataContext _DataContext;
+        ECommerceDataContext _context;
         public ProductRepository(ECommerceDataContext DbContext) { 
-            _DataContext = DbContext;
+            _context = DbContext;
         }
+
         public bool Add(Product product)
         {
-            _DataContext.Products.Add(product);
+            _context.Products.Add(product);
+            return _context.SaveChanges() > 0;
         }
 
-        public bool Delete(Product product)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.FirstOrDefault(c => c.ProductId == id);
+            if (product != null)
+            {
+                product.IsDeleted = true;
+                return _context.SaveChanges() > 0;
+            }
+            else return false;
         }
 
-        public Product GetProductById(int id)
+        public bool Edit(Product product)
         {
-            throw new NotImplementedException();
+           _context.Products.Update(product);
+            return _context.SaveChanges()>0;
+            
         }
 
-        public List<Product> GetProducts()
+        public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+           return _context.Products.Include(c=>c.Category).ToList();
+            
         }
 
-        public bool Update(Product product)
+        public Product GetProduct(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.Where(p => p.ProductId == id).FirstOrDefault();
+
+            return product;
         }
     }
 }

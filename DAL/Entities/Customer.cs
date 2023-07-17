@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ECommerceProject.DAL.Entities
 {
-    internal class Customer
+    public class Customer
     {
+
     }
 }

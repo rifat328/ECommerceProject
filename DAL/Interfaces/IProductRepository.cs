@@ -9,10 +9,10 @@ namespace ECommerceProject.DAL.Interfaces
 {
     public interface IProductRepository
     {
-        List<Product> GetProducts();
-        Product GetProductById(int id);
+        List<Product> GetAll();
+        Product GetProduct(int id);
         bool Add(Product product);
-        bool Update(Product product);
-        bool Delete(Product product);
+        bool Edit(Product product);
+        bool Delete(int id);
     }
 }
