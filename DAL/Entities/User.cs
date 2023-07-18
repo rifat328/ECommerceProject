@@ -21,6 +21,16 @@ namespace ECommerceProject.DAL.Entities
         public DateTime UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
 
+        // Navigation property for one-to-one relationship with Cart (optional)
+        public Cart Cart { get; set; }
+        // Navigation property for one-to-many relationship with Order
+        public ICollection<Order> Orders { get; set; }
+
+        // Navigation property for one-to-many relationship with Review
+        public ICollection<Review> Reviews { get; set; }
+
+        // Navigation property for one-to-many relationship with Wishlist
+        public ICollection<Wishlist> Wishlists { get; set; }
 
 
     }

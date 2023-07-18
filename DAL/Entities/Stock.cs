@@ -15,11 +15,14 @@ namespace ECommerceProject.DAL.Entities
         public string? Location { get; set; }
         public int? MinStockLevel { get; set; }
 
+        // Foreign key for Product (optional)
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
 
-      //- ProductID(Foreign Key referencing the Product Table)
-      //- Quantity
-      //- Location
-      //- MinStockLevel
+        //- ProductID(Foreign Key referencing the Product Table)
+        //- Quantity
+        //- Location
+        //- MinStockLevel
 
     }
 }

@@ -14,6 +14,17 @@ namespace ECommerceProject.DAL.Entities
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set;}
 
+
+        // Foreign key for Wishlist
+      //  public int WishlistId { get; set; }
+        public Wishlist Wishlist { get; set; }
+
+        // Foreign key for Product
+     //   public int ProductId { get; set; }
+        public Product Product { get; set; }
+
+
+
         //11. WishlistItem Table:
         //    - WishlistItemID(Primary Key)
         //    - WishlistID(Foreign Key referencing the Wishlist Table)

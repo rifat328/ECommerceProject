@@ -12,8 +12,9 @@ namespace ECommerceProject.DAL.Entities
         public string Name { get; set; }
         public string? Description { get; set; }
         public bool IsDeleted { get; set; }
-        
-        List<Product> Product { get; set; }
+
+        // Navigation property for one-to-many relationship with Product
+        public ICollection<Product> Products { get; set; }
 
 
 

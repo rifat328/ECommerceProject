@@ -12,6 +12,15 @@ namespace ECommerceProject.DAL.Entities
         public int UserId { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
+        // Foreign key for User
+        // public int UserId { get; set; }
+        public User User { get; set; }
+
+        // Navigation property for one-to-many relationship with WishlistItem
+        public ICollection<WishlistItem> WishlistItems { get; set; }
+
+
+
         //        10. Wishlist Table:
         //    - WishlistID(Primary Key)
         //    - UserID(Foreign Key referencing the User Table)

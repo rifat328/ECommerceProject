@@ -16,6 +16,13 @@ namespace ECommerceProject.DAL.Entities
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set;}
 
+        // Foreign keys for User and Product
+        // public int UserId { get; set; }
+        public User User { get; set; }
+
+       //  public int ProductId { get; set; }
+        public Product Product { get; set; }
+
         //        - ReviewID(Primary Key)
         //- ProductID(Foreign Key referencing the Product Table)
         //- UserID(Foreign Key referencing the User Table)

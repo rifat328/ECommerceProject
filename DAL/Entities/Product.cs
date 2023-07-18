@@ -14,14 +14,17 @@ namespace ECommerceProject.DAL.Entities
         public string Description { get; set; } = string.Empty;
         public string Company { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public string ImageURL { get; set; }=string.Empty;
-        
+        public string ImageURL { get; set; }=string.Empty; 
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
 
+        // Foreign key for Category
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        // Navigation property for one-to-one relationship with Stock
+        public Stock Stock { get; set; }
 
 
 
