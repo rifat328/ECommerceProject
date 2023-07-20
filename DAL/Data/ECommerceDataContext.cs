@@ -27,7 +27,50 @@ namespace ECommerceProject.DAL.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<WishlistItem> WishlistItems { get; set; }
-        //Entity propertys laft for some table.,Relationship Left : for each table. 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().HasData(
+                new Product { ProductId = 1, Name = "Crocex Snail Cream", Description = "For Face Cream , Female Product",
+                    Price = 800, CategoryId = 1, Company = "Crocex",
+                    ImageURL = @"F:\Projects\C#\ECommerceProject\DAL\Resources\ProductImage\advanced-snail-92-all-in-one-cream-cosrx-official-1_720x.webp",
+                    CreatedDate = DateTime.Now, IsDeleted=false },
+                new Product
+                {
+                    ProductId = 2,
+                    Name = "Crocex Snail Mucas",
+                    Description = "For Face Cream , Female Product",
+                    Price = 850,
+                    CategoryId = 1,
+                    Company = "Crocex",
+                    ImageURL = @"F:\Projects\C#\ECommerceProject\DAL\Resources\ProductImage\advanced-snail-92-all-in-one-cream-cosrx-official-1_720x.webp",
+                    CreatedDate = DateTime.Now,
+                    IsDeleted = false
+                }, 
+                new Product
+                {
+                    ProductId = 3,
+                    Name = "The Vitamin C 23 Serum",
+                    Description = "For Face Cream , Female Product",
+                    Price = 890,
+                    CategoryId = 1,
+                    Company = "Crocex",
+                    ImageURL = @"F:\Projects\C#\ECommerceProject\DAL\Resources\ProductImage\the-vitamin-c-23-serum-cosrx-official-1_720x.webp",
+                    CreatedDate = DateTime.Now,
+                    IsDeleted = false
+                }
+                
+                ) ;
+            //Category entry seed.
+            modelBuilder.Entity<Category>().HasData(
+            new Category { CategoryId = 1, Name = "Beauty Product", Description = "Category 1 Beauty Cosmetics", IsDeleted = false },
+            new Category { CategoryId = 2, Name = "Baby Product", Description = "Category 2 Baby derated product", IsDeleted = false },
+            new Category { CategoryId = 3, Name = "Grochary", Description = " Day to day product", IsDeleted = false }
+                );
+
+
+        }
+
         // then Migration 
         //then ApI 
         //Seed , and test ,

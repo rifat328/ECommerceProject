@@ -20,4 +20,9 @@
     <ProjectReference Include="..\GlobalEntity\ECommerceProject.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\ProfileImage\" />
+    <Folder Include="Resources\ProductImage\" />
+  </ItemGroup>
+
 </Project>

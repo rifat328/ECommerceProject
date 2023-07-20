@@ -1,5 +1,7 @@
-﻿using ECommerceProject.DAL.Entities;
+﻿using ECommerceProject.DAL.Data;
+using ECommerceProject.DAL.Entities;
 using ECommerceProject.DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,45 @@ namespace ECommerceProject.DAL.Repositorys
 {
     public class WishlistRepository : IWishlistRepository
     {
+        ECommerceDataContext _context;
+        public WishlistRepository(ECommerceDataContext context)
+        {
+            _context = context;
+        }
         public bool AddWishlist(Wishlist wishlist)
         {
-            throw new NotImplementedException();
+            _context.Wishlists.Add(wishlist);
+            return _context.SaveChanges() > 0;
         }
 
         public bool DeleteWishlist(int wishlistId)
         {
-            throw new NotImplementedException();
+            var wishlist = _context.Wishlists.FirstOrDefault(w => w.WishlistId == wishlistId);
+            if (wishlist != null)
+            {
+                _context.Wishlists.Remove(wishlist);
+                return _context.SaveChanges() > 0;
+            }
+            return false;
         }
 
         public List<Wishlist> GetAllWishlists()
         {
-            throw new NotImplementedException();
+            return _context.Wishlists
+                    .Include(w => w.User)
+                    .ToList();
+
         }
 
         public Wishlist GetWishlistById(int wishlistId)
         {
-            throw new NotImplementedException();
+            return _context.Wishlists.FirstOrDefault(w => w.WishlistId == wishlistId);
         }
 
         public bool UpdateWishlist(Wishlist wishlist)
         {
-            throw new NotImplementedException();
+            _context.Wishlists.Update(wishlist);
+            return _context.SaveChanges() > 0;
         }
     }
 }

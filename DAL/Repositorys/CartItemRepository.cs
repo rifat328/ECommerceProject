@@ -1,4 +1,5 @@
-﻿using ECommerceProject.DAL.Entities;
+﻿using ECommerceProject.DAL.Data;
+using ECommerceProject.DAL.Entities;
 using ECommerceProject.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,68 @@ namespace ECommerceProject.DAL.Repositorys
 {
     public class CartItemRepository : ICartItemRepository
     {
+        private readonly ECommerceDataContext _dbContext;
+
+        public CartItemRepository(ECommerceDataContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public bool AddCartItem(CartItem cartItem)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.CartItems.Add(cartItem);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool DeleteCartItem(int cartItemId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var cartItem = _dbContext.CartItems.Find(cartItemId);
+                if (cartItem != null)
+                {
+                    _dbContext.CartItems.Remove(cartItem);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<CartItem> GetAllCartItems()
         {
-            throw new NotImplementedException();
+            return _dbContext.CartItems.ToList();
         }
 
         public CartItem GetCartItemById(int cartItemId)
         {
-            throw new NotImplementedException();
+            return _dbContext.CartItems.FirstOrDefault(ci => ci.CartItemId == cartItemId);
         }
 
         public bool UpdateCartItem(CartItem cartItem)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.CartItems.Update(cartItem);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ECommerceProject.DAL.Entities;
+﻿using ECommerceProject.DAL.Data;
+using ECommerceProject.DAL.Entities;
 using ECommerceProject.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,43 @@ namespace ECommerceProject.DAL.Repositorys
 {
     public class UserRepository : IUserRepository
     {
+        ECommerceDataContext _context;
+        public UserRepository(ECommerceDataContext context)
+        {
+            _context = context;
+        }
         public bool AddUser(User user)
         {
-            throw new NotImplementedException();
+            _context.Users.Add(user);
+            return _context.SaveChanges() > 0;
         }
 
         public bool DeleteUser(int userId)
         {
-            throw new NotImplementedException();
+            var user = _context.Users.FirstOrDefault(u => u.UserId == userId);
+            if (user != null)
+            {
+                user.IsDeleted = true;
+                return _context.SaveChanges() > 0;
+            }
+            return false;
         }
 
         public List<User> GetAllUsers()
         {
-            throw new NotImplementedException();
+            return _context.Users.Where(u=>u.IsDeleted==false).ToList();
+                
         }
 
         public User GetUserById(int userId)
         {
-            throw new NotImplementedException();
+            return _context.Users.FirstOrDefault(u => u.UserId == userId);
         }
 
         public bool UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            _context.Users.Update(user);
+            return _context.SaveChanges() > 0;
         }
     }
 }
