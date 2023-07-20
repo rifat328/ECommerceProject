@@ -21,7 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BLL\ECommerceProject.BLL.csproj" />
+    <ProjectReference Include="..\DAL\ECommerceProject.DAL.csproj" />
+    <ProjectReference Include="..\GlobalEntity\ECommerceProject.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

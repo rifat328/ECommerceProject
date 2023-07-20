@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //Dependeny Injection:   conn string = ECommerceAppString on appsettings.json
-builder.Services.AddDbContext<ECommerceDataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ECommerceAppString ")));
+builder.Services.AddDbContext<ECommerceDataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ECommerceAppString")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

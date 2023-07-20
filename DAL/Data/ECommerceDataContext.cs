@@ -28,8 +28,37 @@ namespace ECommerceProject.DAL.Data
         public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<WishlistItem> WishlistItems { get; set; }
 
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Cart>().HasKey(c => c.CartId);
+            modelBuilder.Entity<CartItem>().HasKey(ci => ci.CartItemId);
+            modelBuilder.Entity<Category>().HasKey(c => c.CategoryId);
+            modelBuilder.Entity<Customer>().HasKey(c => c.CustomerId);
+            modelBuilder.Entity<Order>().HasKey(o => o.OrderId);
+            modelBuilder.Entity<OrderItem>().HasKey(oi => oi.OrderItemId);
+            modelBuilder.Entity<Product>().HasKey(p => p.ProductId);
+            modelBuilder.Entity<Review>().HasKey(r => r.ReviewId);
+            modelBuilder.Entity<Stock>().HasKey(s => s.StockID);
+            modelBuilder.Entity<User>().HasKey(u => u.UserId);
+            modelBuilder.Entity<Wishlist>().HasKey(w => w.WishlistId);
+            modelBuilder.Entity<WishlistItem>().HasKey(wi => wi.WishlistItemId);
+            modelBuilder.Entity<Product>()
+                    .Property(p => p.Price)
+                    .HasColumnType("decimal(18, 2)");
+            modelBuilder.Entity<CartItem>()
+                    .Property(p => p.Price)
+                    .HasColumnType("decimal(18, 2)");
+            modelBuilder.Entity<Order>()
+                    .Property(p => p.TotalAmount)
+                    .HasColumnType("decimal(18, 2)");
+            modelBuilder.Entity<OrderItem>()
+                    .Property(p => p.Price)
+                    .HasColumnType("decimal(18, 2)");
+
             modelBuilder.Entity<Product>().HasData(
                 new Product { ProductId = 1, Name = "Crocex Snail Cream", Description = "For Face Cream , Female Product",
                     Price = 800, CategoryId = 1, Company = "Crocex",
