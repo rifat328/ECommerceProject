@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerceProject.DAL.Entities
+namespace ECommerceProject.Service.Services
 {
-    public class Order
+    public class OrderDTO
     {
 
         public int OrderId { get; set; }
@@ -14,19 +14,17 @@ namespace ECommerceProject.DAL.Entities
         public DateTime OrderDate { get; set; }
         public decimal TotalAmount { get; set; }
         public string ShippingAddress { get; set; }
-        public bool IsShipped { get; set; }
-
 
         // Navigation property for one-to-many relationship with OrderItem
-        public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItemDTO> OrderItems { get; set; }
 
         // Foreign key for User
        // public int UserId { get; set; }
-        public User User { get; set; }
+        public UserDTO User { get; set; }
 
-        public Order()
+        public OrderDTO()
         {
-            OrderItems = new List<OrderItem>();
+            OrderItems = new List<OrderItemDTO>();
         }
 
 

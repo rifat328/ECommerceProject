@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAL\ECommerceProject.DAL.csproj" />
     <ProjectReference Include="..\GlobalEntity\ECommerceProject.Service.csproj" />
   </ItemGroup>
 

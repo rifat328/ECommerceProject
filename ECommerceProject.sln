@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLayer", "ApplicationLayer\ApplicationLayer.csproj", "{B81B5FBD-0141-4B9A-9D71-83C0FF4977B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceProject.DAL", "DAL\ECommerceProject.DAL.csproj", "{CAEEC5E3-C2F9-42E3-B9DA-7C16B64944EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceProject.BLL", "BLL\ECommerceProject.BLL.csproj", "{EA1AC61D-7A6B-461A-BA15-1E610752CA86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceProject.Service", "GlobalEntity\ECommerceProject.Service.csproj", "{7D9E26DB-8E1B-422C-91E7-3A022C324AE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceProject.DAL", "DAL\ECommerceProject.DAL.csproj", "{CAEEC5E3-C2F9-42E3-B9DA-7C16B64944EF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceProject.Service", "GlobalEntity\ECommerceProject.Service.csproj", "{7D9E26DB-8E1B-422C-91E7-3A022C324AE2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceProject.API", "ECommerceProject.API\ECommerceProject.API.csproj", "{B271EFB7-19AB-4685-B68E-DDE621DB588F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceProject.API", "ECommerceProject.API\ECommerceProject.API.csproj", "{B271EFB7-19AB-4685-B68E-DDE621DB588F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B81B5FBD-0141-4B9A-9D71-83C0FF4977B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B81B5FBD-0141-4B9A-9D71-83C0FF4977B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B81B5FBD-0141-4B9A-9D71-83C0FF4977B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B81B5FBD-0141-4B9A-9D71-83C0FF4977B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA1AC61D-7A6B-461A-BA15-1E610752CA86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA1AC61D-7A6B-461A-BA15-1E610752CA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA1AC61D-7A6B-461A-BA15-1E610752CA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA1AC61D-7A6B-461A-BA15-1E610752CA86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CAEEC5E3-C2F9-42E3-B9DA-7C16B64944EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CAEEC5E3-C2F9-42E3-B9DA-7C16B64944EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAEEC5E3-C2F9-42E3-B9DA-7C16B64944EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
