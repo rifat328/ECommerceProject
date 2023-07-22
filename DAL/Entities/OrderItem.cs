@@ -16,6 +16,7 @@ namespace ECommerceProject.DAL.Entities
         // Foreign key for Order
         public int OrderId { get; set; }
         public Order Order { get; set; }
+        public Product Product { get; set; }
 
         //        - OrderItemID(Primary Key)
         //- OrderID(Foreign Key referencing the Order Table)

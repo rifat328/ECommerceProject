@@ -31,6 +31,7 @@ builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
 builder.Services.AddScoped<IWishlistItemRepository, WishlistItemRepository>();
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
+
 var app = builder.Build();
 
 

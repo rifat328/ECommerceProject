@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceProject.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -15,7 +15,7 @@ namespace ECommerceProject.API.Controllers
             _productRepository = productRepository;
         }
 
-        [ResponseCache(Duration = 10)]
+        
         [HttpGet]
         public IActionResult GetAll()
         {

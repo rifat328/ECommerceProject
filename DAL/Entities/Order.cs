@@ -22,6 +22,14 @@ namespace ECommerceProject.DAL.Entities
        // public int UserId { get; set; }
         public User User { get; set; }
 
+        public Order()
+        {
+            OrderItems = new List<OrderItem>();
+        }
+
+
+
+
         //        - OrderID(Primary Key)
         //- UserID(Foreign Key referencing the User Table)
         //- OrderDate

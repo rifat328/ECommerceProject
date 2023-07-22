@@ -32,6 +32,7 @@ namespace ECommerceProject.DAL.Entities
         // Navigation property for one-to-many relationship with Wishlist
         public ICollection<Wishlist> Wishlists { get; set; }
 
+        
 
     }
 }
