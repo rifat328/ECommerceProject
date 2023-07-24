@@ -53,5 +53,10 @@ namespace ECommerceProject.DAL.Repositorys
 
             return product;
         }
+
+        public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            return _context.Products.Where(p => p.CategoryId == categoryId).ToList();
+        }
     }
 }

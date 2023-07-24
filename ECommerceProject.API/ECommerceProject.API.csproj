@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -22,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GlobalEntity\ECommerceProject.Service.csproj" />
+    <ProjectReference Include="..\ECommerceProject.DAL\ECommerceProject.DAL.csproj" />
+    <ProjectReference Include="..\ECommerceProject.Services\ECommerceProject.Service.csproj" />
   </ItemGroup>
 
 </Project>

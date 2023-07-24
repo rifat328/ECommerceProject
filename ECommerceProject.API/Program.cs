@@ -1,7 +1,11 @@
 using ECommerceProject.DAL.Data;
 using ECommerceProject.DAL.Interfaces;
 using ECommerceProject.DAL.Repositorys;
+using ECommerceProject.Service.Helper;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using ECommerceProject.Service.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,9 @@ builder.Services.AddDbContext<ECommerceDataContext>(options => options.UseSqlSer
 
 //  Entity Per Service + Feture Related Service build, Add dependency injection per entity and features
 
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
@@ -29,6 +36,11 @@ builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
 builder.Services.AddScoped<IWishlistItemRepository, WishlistItemRepository>();
+
+builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<CategoryService>();
+
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 

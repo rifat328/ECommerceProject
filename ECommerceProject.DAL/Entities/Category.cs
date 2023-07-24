@@ -16,10 +16,7 @@ namespace ECommerceProject.DAL.Entities
         // Navigation property for one-to-many relationship with Product
         public ICollection<Product> Products { get; set; }
 
-        public Category()
-        {
-            Products = new List<Product>();
-        }
+
 
     }
 }

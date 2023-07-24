@@ -1,6 +1,4 @@
-﻿using ECommerceProject.DAL.Entities;
-using ECommerceProject.DAL.Interfaces;
-using ECommerceProject.Service.DTO;
+﻿using ECommerceProject.Service.DTO;
 using ECommerceProject.Service.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,56 +7,52 @@ namespace ECommerceProject.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class CategoryController : ControllerBase
     {
-        private readonly ProductService _productService;
-
-        public ProductController(ProductService productService)
+        public readonly CategoryService _categoryService;
+        public CategoryController(CategoryService categoryService)
         {
-            _productService = productService;
+            _categoryService=categoryService;
         }
-
         [HttpGet]
-        public ActionResult<List<ProductDTO>> GetAllProducts()
+        public ActionResult <List<CategoryDTO>> GetAllCategories()
         {
             try
             {
-                List<ProductDTO> products = _productService.GetAllProducts();
-                return Ok(products);
-            }
-            catch (Exception ex)
+                List<CategoryDTO> category = _categoryService.GetAllCategories();
+                return Ok(category);
+            }catch (Exception ex)
             {
-                // Handle exceptions and return appropriate error response
-                return StatusCode(500, "An error occurred while getting the products.");
+                return StatusCode(500,"An error has occurred while getting the category");
             }
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ProductDTO> GetProductById(int id)
+        public ActionResult<ProductDTO> GetCategoryById(int id)
         {
             try
             {
-                ProductDTO product = _productService.GetProductById(id);
-                if (product == null)
+                CategoryDTO category = _categoryService.GetCategoryById(id);
+                if (category == null)
                 {
                     return NotFound();
                 }
-                return Ok(product);
+                return Ok(category);
             }
             catch (Exception ex)
             {
                 // Handle exceptions and return appropriate error response
-                return StatusCode(500, "An error occurred while getting the product.");
+                return StatusCode(500, "An error occurred while getting the category.");
             }
         }
 
         [HttpPost]
-        public ActionResult AddProduct(ProductDTO productDto)
+        public ActionResult AddCategory(CategoryDTO categoryDto)
         {
             try
             {
-                _productService.AddProduct(productDto);
-                return Ok("Product added successfully.");
+                _categoryService.AddCategory(categoryDto);
+                return Ok("Category added successfully.");
             }
             catch (ArgumentException ex)
             {
@@ -67,21 +61,21 @@ namespace ECommerceProject.API.Controllers
             catch (Exception ex)
             {
                 // Handle exceptions and return appropriate error response
-                return StatusCode(500, "An error occurred while adding the product.");
+                return StatusCode(500, "An error occurred while adding the Category.");
             }
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateProduct(int id, ProductDTO productDto)
+        public ActionResult UpdateCategory(int id, CategoryDTO categoryDto)
         {
             try
             {
-                if (id != productDto.ProductId)
+                if (id != categoryDto.CategoryId)
                 {
                     return BadRequest("Invalid product ID.");
                 }
 
-                _productService.UpdateProduct(productDto);
+                _categoryService.UpdateCategory(categoryDto);
                 return Ok("Product updated successfully.");
             }
             catch (ArgumentException ex)
@@ -91,7 +85,7 @@ namespace ECommerceProject.API.Controllers
             catch (Exception ex)
             {
                 // Handle exceptions and return appropriate error response
-                return StatusCode(500, "An error occurred while updating the product.");
+                return StatusCode(500, "An error occurred while updating the Category.");
             }
         }
 
@@ -100,7 +94,7 @@ namespace ECommerceProject.API.Controllers
         {
             try
             {
-                _productService.DeleteProduct(id);
+                _categoryService.DeleteCategory(id);
                 return Ok("Product deleted successfully.");
             }
             catch (ArgumentException ex)
@@ -110,8 +104,10 @@ namespace ECommerceProject.API.Controllers
             catch (Exception ex)
             {
                 // Handle exceptions and return appropriate error response
-                return StatusCode(500, "An error occurred while deleting the product.");
+                return StatusCode(500, "An error occurred while deleting the Category.");
             }
         }
+
+
     }
 }

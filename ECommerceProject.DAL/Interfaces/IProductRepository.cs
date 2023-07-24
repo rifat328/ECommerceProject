@@ -14,5 +14,6 @@ namespace ECommerceProject.DAL.Interfaces
         bool Add(Product product);
         bool Edit(Product product);
         bool Delete(int id);
+        List<Product> GetProductsByCategoryId(int categoryId);
     }
 }

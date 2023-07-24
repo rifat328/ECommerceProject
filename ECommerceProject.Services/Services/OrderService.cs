@@ -22,10 +22,7 @@ namespace ECommerceProject.Service.Services
        // public int UserId { get; set; }
         public UserDTO User { get; set; }
 
-        public OrderDTO()
-        {
-            OrderItems = new List<OrderItemDTO>();
-        }
+
 
 
 

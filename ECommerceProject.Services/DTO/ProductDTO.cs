@@ -20,12 +20,9 @@ namespace ECommerceProject.Service.DTO
 
         // Foreign key for Category
         public int CategoryId { get; set; }
-        public CategoryDTO Category { get; set; }
-
+        
         // Navigation property for one-to-one relationship with Stock
         public StockDTO Stock { get; set; }
-
-
 
     }
 }
