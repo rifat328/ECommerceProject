@@ -112,6 +112,6 @@ namespace ECommerceProject.API.Controllers
                 // Handle exceptions and return appropriate error response
                 return StatusCode(500, "An error occurred while deleting the product.");
             }
-        }
+        } // for extra info about dto to domain conversion  https://youtu.be/e1hpjbClopA?t=6362
     }
 }
